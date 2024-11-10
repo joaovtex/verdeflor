@@ -14,6 +14,13 @@
             </mat-select>
         </mat-form-field>
 
+        <mat-form-field class="search-field">
+            <input matInput placeholder="Pesquisar por nome" [(ngModel)]="nomePesquisa" (keyup)="pesquisarPorNome()">
+            <button mat-button *ngIf="nomePesquisa" matSuffix mat-icon-button aria-label="Clear" (click)="limparPesquisa()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
         <span class="spacer"></span>
 
         <button (click)="cadastrar()" class="botao-novo" mat-raised-button>
@@ -47,13 +54,13 @@
             <span class="spacer"></span>
 
             <div class="botoes-acoes">
-                <button (click)="editar(item.id)" mat-fab extend class="botao-editar">
+                <button (click)="editar(item.id)" mat-stroked-button class="botao-editar">
                     <mat-icon>edit</mat-icon>
                     editar
                 </button>
 
-                <button (click)="delete(item.id)" mat-fab extend class="botao-excluir">
-                    <mat-icon>delete</mat-icon>
+                <button (click)="delete(item.id)" mat-stroked-button class="botao-excluir">
+                    <mat-icon class="ico">delete_forever</mat-icon>
                     excluir
                 </button>
             </div>

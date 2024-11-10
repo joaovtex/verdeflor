@@ -22,7 +22,7 @@ export class UserService {
   }
 
   userCredenciais(id: any): Observable<User> {
-    const url = `${this.baseUrl}`
+    const url = `${this.baseUrl}/${id}`
     return this.http.get<User>(url)
   }
 

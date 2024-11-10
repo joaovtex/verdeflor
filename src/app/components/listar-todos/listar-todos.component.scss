@@ -11,6 +11,7 @@
         flex-direction: row;
         align-items: center;
         width: 80%;
+        gap: 10px;
 
         .spacer {
             margin: auto;
@@ -31,13 +32,16 @@
             flex-direction: row;
             background-color: white;
             border: solid #33784A;
+            padding: 10px;
             border-radius: 20px;
 
             .subtitulo {
                 color: gray;
             }
 
-            .header {}
+            .header {
+                margin-top: 0px;
+            }
 
             .spacer {
                 margin: auto;
@@ -51,20 +55,20 @@
                 padding-right: 15px;
                 gap: 10px;
 
-                .botao-editar {
-                    width: 100px;
-                    border-radius: 10px;
-                    gap: 10px;
-                    background-color: blue;
+                button {
                     color: white;
                 }
 
+                .botao-editar {
+                    background-color: #33784A;
+                }
+
                 .botao-excluir {
-                    width: 100px;
-                    border-radius: 10px;
-                    gap: 10px;
-                    background-color: red;
-                    color: white;
+                    .ico {
+                        color: red;
+                    }
+
+                    background-color: #33784A;
                 }
             }
         }

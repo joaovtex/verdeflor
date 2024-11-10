@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../entities/user';
 import { UserService } from '../../services/user.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -27,19 +27,26 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user.id = this.route.snapshot.paramMap.get("id")!
-
     this.userCredenciais()
   }
 
   userCredenciais(): void {
-    this.service.userCredenciais(this.user.id).subscribe((resposta) => {
+    //window.alert('entrou na funcao')
+
+    this.service.userCredenciais(1).subscribe((resposta) => {
+      //window.alert('bbbb')
       console.log("Dados recebidos:", resposta); // Para verificar o retorno
+      //this.service.message('pegou os dados')
       this.user = resposta;
     });
+
   }
 
-  logar() {
+  logar(): void {
+    //window.alert('a')
+
+    this.ngOnInit()
+
     if(this.inputs.email === this.user.email && this.inputs.senha === this.user.senha) {
       this.router.navigate(['funcionarios'])
     } else {

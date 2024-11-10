@@ -34,36 +34,36 @@ export class CadastroComponent implements OnInit {
 
   cadastrar(): void {
     if (this.funcionario.nome.trim().length === 0 || this.funcionario.cpf.trim().length === 0 || String(this.funcionario.salario).trim().length === 0) {
-
-      this.service.message('Preencha todos os campos!')
+      this.service.message('Preencha todos os campos!');
 
     } else if (!this.validarCPF(String(this.funcionario.cpf))) {
+      this.service.message('CPF inválido!');
 
-      this.service.message('CPF inválido!')
-
-    }
-    else if (Number(this.funcionario.salario) < 1412) {
-
-      this.service.message('Valor do salário inválido!')
+    } else if (Number(this.funcionario.salario) < 1412) {
+      this.service.message('Valor do salário inválido!');
 
     } else {
-
-      this.funcionario.cpf = this.formatarCPF(String(this.funcionario.cpf))
-
-      this.formatarData()
-
-      console.log(this.funcionario)
-
-      this.service.cadastrar(this.funcionario).subscribe((resposta) => {
-        this.service.message('Funcionário cadastrado com sucesso.')
-      },
+      this.funcionario.cpf = this.formatarCPF(String(this.funcionario.cpf));
+      this.formatarData();
+      
+      this.service.cadastrar(this.funcionario).subscribe(
+        (resposta) => {
+          this.service.message('Funcionário cadastrado com sucesso.');
+          this.funcionario = {
+            nome: '',
+            cpf: '',
+            salario: 0,
+            dtAdmissao: new Date()
+          };
+        },
         (err) => {
-          this.service.message('Erro ao cadastrar funcionário!')
+          this.service.message('Erro ao cadastrar funcionário!');
         }
-      )
-      this.cancelar()
+      );
+
     }
   }
+  
 
   validarCPF(cpf: string): boolean {
 

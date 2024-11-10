@@ -6,35 +6,51 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-listar-todos',
   templateUrl: './listar-todos.component.html',
-  styleUrl: './listar-todos.component.scss'
+  styleUrls: ['./listar-todos.component.scss']
 })
 
 export class ListarTodosComponent implements OnInit {
-  list: Funcionario[] = []
-  ordenacao: string = 'nome'; 
+  list: Funcionario[] = [];
+  ordenacao: string = 'nome';
+  nomePesquisa: string = ''; // Variável para armazenar o termo de pesquisa
 
   constructor(private service: FuncionarioService, private router: Router) { }
 
   ngOnInit(): void {
-    this.findAll()
+    this.findAll();
   }
 
   findAll(): void {
     this.service.findAll().subscribe((resposta) => {
       this.list = resposta;
-      this.ordenarLista(); 
+      this.ordenarLista();
     });
+  }
+
+  pesquisarPorNome(): void {
+    if (this.nomePesquisa.trim() === '') {
+      this.findAll(); // Retorna lista completa se vazio
+    } else {
+      this.service.pesquisarPorNome(this.nomePesquisa).subscribe((resposta) => {
+        this.list = resposta;
+      });
+    }
+}
+
+  limparPesquisa(): void {
+    this.nomePesquisa = '';
+    this.findAll(); // Recarrega a lista completa quando a pesquisa é limpa
   }
 
   delete(id: any): void {
     this.service.delete(id).subscribe((resposta) => {
       if (resposta === null) {
-        this.service.message(`Registro ${id} excluído com sucesso!`)
-        this.list = this.list.filter(funcionario => funcionario.id != id)
+        this.service.message(`Registro ${id} excluído com sucesso!`);
+        this.list = this.list.filter(funcionario => funcionario.id !== id);
       } else {
-        this.service.message('Não foi possível excluir o registro.')
+        this.service.message('Não foi possível excluir o registro.');
       }
-    })
+    });
   }
 
   ordenarLista(): void {
@@ -57,11 +73,11 @@ export class ListarTodosComponent implements OnInit {
     }
   }
 
-  cadastrar() {
-    this.router.navigate(['cadastro'])
+  cadastrar(): void {
+    this.router.navigate(['cadastro']);
   }
 
-  editar(id: any) {
-    this.router.navigate([`atualizar/${id}`])
+  editar(id: any): void {
+    this.router.navigate([`atualizar/${id}`]);
   }
 }

@@ -39,4 +39,10 @@ export class FuncionarioService {
     const url = `${this.baseUrl}/${id}`
     return this.http.get<Funcionario>(url)
   }
+
+  pesquisarPorNome(nome: string): Observable<Funcionario[]> {
+    const url = `${this.baseUrl}/nome/${nome}`;
+    return this.http.get<Funcionario[]>(url);
+}
+
 }
