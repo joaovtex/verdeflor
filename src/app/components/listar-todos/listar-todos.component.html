@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<div class="corpo">
+
+    <div class="ordenacao-novo">
+        <mat-form-field class="filtro-ordenacao">
+            <mat-label>Ordenar por</mat-label>
+            <mat-select [(value)]="ordenacao" (selectionChange)="ordenarLista()">
+                <mat-option value="nome">Nome (A-Z)</mat-option>
+                <mat-option value="salarioAsc">Salário (Menor para Maior)</mat-option>
+                <mat-option value="salarioDesc">Salário (Maior para Menor)</mat-option>
+                <mat-option value="dtAdmissaoAsc">Data de Admissão (Mais antigo)</mat-option>
+                <mat-option value="dtAdmissaoDesc">Data de Admissão (Mais recente)</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <span class="spacer"></span>
+
+        <button (click)="cadastrar()" class="botao-novo" mat-raised-button>
+            <mat-icon>add</mat-icon>
+            Novo
+        </button>
+    </div>
+
+    <div class="conteudo" *ngFor="let item of list">
+
+        <mat-card class="card">
+
+            <mat-card-header class="header">
+                <mat-card-title>
+                    {{item.nome}}
+                </mat-card-title>
+
+                <mat-card-subtitle class="subtitulo">
+                    CPF: {{item.cpf}}
+                </mat-card-subtitle>
+
+                <mat-card-subtitle class="subtitulo">
+                    Salário: {{item.salario | currency:'R$ ':'symbol':'1.2-2'}}
+                </mat-card-subtitle>
+
+                <mat-card-subtitle class="subtitulo">
+                    Data de Admissão: {{item.dtAdmissao | date:'dd/MM/yyyy'}}
+                </mat-card-subtitle>
+            </mat-card-header>
+
+            <span class="spacer"></span>
+
+            <div class="botoes-acoes">
+                <button (click)="editar(item.id)" mat-fab extend class="botao-editar">
+                    <mat-icon>edit</mat-icon>
+                    editar
+                </button>
+
+                <button (click)="delete(item.id)" mat-fab extend class="botao-excluir">
+                    <mat-icon>delete</mat-icon>
+                    excluir
+                </button>
+            </div>
+
+        </mat-card>
+
+    </div>
+</div>

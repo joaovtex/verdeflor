@@ -1,0 +1,22 @@
+<div class="pagina-login">
+    <img src="../../../assets/images/loginImage.png" alt="" class="imagem" />
+    <div class="conecte">
+      <div class="textos">
+        <h2>Conecte-se</h2>
+        <p>Bem-vindo de volta! <br />Por favor, entre em sua conta:</p>
+      </div>
+  
+      <div class="campo">
+        <img src="../../../assets/images/email.png" class="icones" />
+        <input type="text" placeholder="Digite seu e-mail" [(ngModel)]="inputs.email" name="inputs.email" />
+      </div>
+  
+      <div class="campo">
+        <img src="../../../assets/images/senha.png" id="senha" />
+        <input type="password" placeholder="Digite sua senha" [(ngModel)]="inputs.senha" name="inputs.senha" />
+      </div>
+  
+      <button (click)="logar()">ENTRAR</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,21 @@
+.header-component {
+    background-image: url("../../../assets/images/fundoHeaderFooterMenus2.jpg");
+    background-size: cover;
+    position: relative;
+    height: 80px;
+
+    img {
+        height: 4rem;
+    }
+
+    button {
+        border-radius: 20px;
+
+        img {
+            height: 15px;
+        }
+    }
+}
+.spacer {
+    margin-left: auto;
+}

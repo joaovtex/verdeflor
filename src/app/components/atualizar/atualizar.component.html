@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<div class="formulario">
+    <h1>Alteração de Funcionário</h1>
+
+    <div class="dados">
+        <mat-form-field class="nome-funcionario">
+            <mat-label>
+                Nome Completo:
+            </mat-label>
+
+            <input matInput size="60" [(ngModel)]="funcionario.nome" name="funcionario.nome">
+        </mat-form-field>
+
+        <mat-form-field class="cpf-funcionario">
+            <mat-label>
+                CPF:
+            </mat-label>
+
+            <input matInput size="60" [(ngModel)]="funcionario.cpf" name="funcionario.cpf">
+        </mat-form-field>
+
+        <mat-form-field class="salario-funcionario">
+            <mat-label>
+                Salário:
+            </mat-label>
+
+            <input matInput type="number" size="60" [(ngModel)]="funcionario.salario" name="funcionario.salario">
+        </mat-form-field>
+
+        <mat-form-field class="admissao-funcionario" appearance="fill">
+            <mat-label>Data de Ínicio</mat-label>
+
+            <input [(ngModel)]="funcionario.dtAdmissao" [matDatepicker]="dp3" matInput
+                [value]="funcionario.dtAdmissao | date:'yyyy-MM-dd'" />
+            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="botoes">
+        <button (click)="atualizar()" mat-raised-button>
+            Atualizar
+        </button>
+
+        <button (click)="cancelar()" mat-raised-button>
+            Cancelar
+        </button>
+    </div>
+</div>

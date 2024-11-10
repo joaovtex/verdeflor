@@ -1,0 +1,72 @@
+.corpo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .ordenacao-novo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 80%;
+
+        .spacer {
+            margin: auto;
+        }
+
+        .botao-novo {
+            background-color: #33784A;
+            border-radius: 100px;
+            width: 1;
+        }
+    }
+
+    .conteudo {
+        width: 80%;
+
+        .card {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+            border: solid #33784A;
+            border-radius: 20px;
+
+            .subtitulo {
+                color: gray;
+            }
+
+            .header {}
+
+            .spacer {
+                margin: auto;
+            }
+
+            .botoes-acoes {
+                display: flex;
+                flex-direction: column;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-right: 15px;
+                gap: 10px;
+
+                .botao-editar {
+                    width: 100px;
+                    border-radius: 10px;
+                    gap: 10px;
+                    background-color: blue;
+                    color: white;
+                }
+
+                .botao-excluir {
+                    width: 100px;
+                    border-radius: 10px;
+                    gap: 10px;
+                    background-color: red;
+                    color: white;
+                }
+            }
+        }
+    }
+}

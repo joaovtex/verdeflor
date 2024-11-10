@@ -1,0 +1,36 @@
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    h1 {
+        font-weight: bold;
+        color: #33784A;
+    }
+    
+    .dados {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+        .nome-funcionario, .cpf-funcionario, .salario-funcionario {
+            width: 100%;
+        }
+
+        .admissao-funcionario {
+            width: 20%;
+        }
+    }
+
+    .botoes {
+        display: flex;
+        gap: 10px;
+
+        button {
+            background-color: #33784A;
+        }
+    }
+}
