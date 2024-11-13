@@ -43,6 +43,9 @@ export class ListarTodosComponent implements OnInit {
   }
 
   delete(id: any): void {
+    let confirma = confirm("Confirma a exclusão do funcionário")
+
+    if(confirma ) {
     this.service.delete(id).subscribe((resposta) => {
       if (resposta === null) {
         this.service.message(`Registro ${id} excluído com sucesso!`);
@@ -51,7 +54,10 @@ export class ListarTodosComponent implements OnInit {
         this.service.message('Não foi possível excluir o registro.');
       }
     });
+  } else {
+    this.service.message("Exclusão cancelada.")
   }
+}
 
   ordenarLista(): void {
     switch (this.ordenacao) {

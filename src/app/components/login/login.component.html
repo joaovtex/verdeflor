@@ -8,12 +8,12 @@
   
       <div class="campo">
         <img src="../../../assets/images/email.png" class="icones" />
-        <input type="text" placeholder="Digite seu e-mail" [(ngModel)]="inputs.email" name="inputs.email" />
+        <input type="text" placeholder="Digite seu e-mail" [(ngModel)]="user.email" name="user.email" />
       </div>
   
       <div class="campo">
         <img src="../../../assets/images/senha.png" id="senha" />
-        <input type="password" placeholder="Digite sua senha" [(ngModel)]="inputs.senha" name="inputs.senha" />
+        <input type="password" placeholder="Digite sua senha" [(ngModel)]="user.senha" name="user.senha" />
       </div>
   
       <button (click)="logar()" mat-stroked-button>ENTRAR <mat-icon>login</mat-icon></button>

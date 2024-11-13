@@ -5,5 +5,5 @@ export const environment = {
 
 export const userEnvironment = {
     production: false,
-    baseUrl: 'http://localhost:8080/usuario'
+    baseUrl: 'http://localhost:8080/usuario/login'
 }

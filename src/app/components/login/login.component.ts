@@ -11,11 +11,6 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 export class LoginComponent implements OnInit {
   user: User = {
     id: '',
-    email: 'admin@gmail.com',
-    senha: '@admin123'
-  }
-
-  inputs = {
     email: '',
     senha: ''
   }
@@ -27,31 +22,23 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userCredenciais()
-  }
-
-  userCredenciais(): void {
-    //window.alert('entrou na funcao')
-
-    this.service.userCredenciais(1).subscribe((resposta) => {
-      //window.alert('bbbb')
-      console.log("Dados recebidos:", resposta); // Para verificar o retorno
-      //this.service.message('pegou os dados')
-      this.user = resposta;
-    });
 
   }
 
   logar(): void {
-    //window.alert('a')
+    this.service.logar(this.user).subscribe(
+      (resposta: boolean) => {
+        if (resposta) {
+          this.router.navigate(['funcionarios']);
+        } else {
+          this.service.message("Credenciais inválidas!")
+        }
+      },
+      (error) => {
+        alert('Erro ao fazer login! Verifique a conexão com o servidor.');
+      }
+    );
+}
 
-    this.ngOnInit()
-
-    if(this.inputs.email === this.user.email && this.inputs.senha === this.user.senha) {
-      this.router.navigate(['funcionarios'])
-    } else {
-      this.service.message("Credenciais inválidas!")
-    }
-  }
 
 }
