@@ -1,0 +1,254 @@
+.landingpage {
+    .header {
+        background-image: url('../../../assets/images/fundoBanner.jpg');
+        background-size: cover;
+        height: 250px;
+        position: relative;
+
+        .conteudo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+            height: 100%;
+
+            h1 {
+                margin: 0;
+                font: 100 55px 'InriaSerif';
+            }
+
+            p {
+                margin: 0;
+                font: 100 18px 'InriaSerif';
+            }
+
+            button {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                display: flex;
+                align-items: center;
+                background: none;
+                color: white;
+                padding: 10px;
+                padding-right: 20px;
+                border-radius: 60px;
+                border: 3px solid white;
+                font: 100 'Inter';
+                cursor: pointer;
+                cursor: pointer;
+                gap: 5px;
+
+                &:hover {
+                    transform: scale(1.02);
+                }
+
+                &:active {
+                    transform: scale(0.98);
+                }
+
+                img {
+                    height: 20px;
+                    padding-right: 15px;
+                    padding-left: 15px;
+                }
+            }
+        }
+    }
+
+    .corpo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        padding-left: 10%;
+        padding-right: 10%;
+        margin-bottom: 30px;
+        gap: 20px;
+
+        .sobrenos {
+            display: flex;
+            flex-direction: column;
+            max-width: 90%;
+
+            h1 {
+                padding-top: 20px;
+                color: #034618;
+                text-align: center;
+            }
+
+            .conteudo {
+                display: flex;
+                flex-direction: row;
+                max-width: 100%;
+                gap: 4%;
+
+                img {
+                    max-height: 40%;
+                    max-width: 40%;
+                }
+
+                p {
+                    text-align: justify;
+                    font-size: 120%;
+                }
+            }
+        }
+
+        .servicos {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+
+            h1 {
+                padding-top: 20px;
+                color: #034618;
+                text-align: center;
+                margin-bottom: 0;
+            }
+
+            p {
+                text-align: center;
+                margin-top: 0;
+                font-size: 120%;
+            }
+
+            .cards {
+                display: flex;
+                flex-direction: row;
+                gap: 5%;
+                justify-content: center;
+
+                .component-servicoscards1 {
+                    background-image: url("../../../assets/images/servicoJardim.png");
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    filter: brightness(60%);
+                }
+
+                .component-servicoscards2 {
+                    background-image: url("../../../assets/images/servicoPlantio.png");
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    filter: brightness(60%);
+                }
+
+                .component-servicoscards3 {
+                    background-image: url("../../../assets/images/servicoIrrigacao.png");
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    filter: brightness(60%);
+                }
+
+                .component-servicoscards4 {
+                    background-image: url("../../../assets/images/servicoCuidados.png");
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    filter: brightness(60%);
+                }
+
+                .component-servicoscards1,
+                .component-servicoscards2,
+                .component-servicoscards3,
+                .component-servicoscards4 {
+                    width: 12rem;
+                    height: 12rem;
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 10px;
+
+                    p {
+                        position: absolute;
+                        bottom: -5px;
+                        width: 130px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        color: white;
+                        font-weight: 500;
+                        font-size: 14px;
+                        text-align: center;
+                        z-index: 1;
+                    }
+                }
+            }
+        }
+
+        .parceiros {
+            display: flex;
+            flex-direction: row;
+            width: 90%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+            background-color: #034618;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 4%;
+            margin-top: 20px;
+
+            h1 {
+                color: white;
+                margin-left: 0;
+            }
+
+            img {
+                height: 15%;
+                width: 15%;
+            }
+        }
+    }
+
+    .footer {
+        background-image: url('../../../assets/images/fundoFooter.jpg');
+        background-size: cover;
+        height: 250px;
+        position: relative;
+        bottom: 0;
+
+        .conteudo {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            background-color: rgba(4, 77, 29, 0.75);
+            height: 100%;
+            gap: 30px;
+
+            .redes {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+
+                img {
+                    height: 50px;
+                }
+
+                p {
+                    font-size: 25px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    }
+}

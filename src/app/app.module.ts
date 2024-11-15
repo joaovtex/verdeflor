@@ -27,6 +27,7 @@ import { CurrencyPipe } from '@angular/common';
 import { AtualizarComponent } from './components/atualizar/atualizar.component';
 import {MatSelectModule} from '@angular/material/select';
 import { LoginComponent } from './components/login/login.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
 
 registerLocaleData(localePt);
 
@@ -38,7 +39,8 @@ registerLocaleData(localePt);
     ListarTodosComponent,
     CadastroComponent,
     AtualizarComponent,
-    LoginComponent
+    LoginComponent,
+    LandingpageComponent
   ],
   imports: [
     MatSnackBarModule,

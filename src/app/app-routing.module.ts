@@ -4,10 +4,15 @@ import { ListarTodosComponent } from './components/listar-todos/listar-todos.com
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { AtualizarComponent } from './components/atualizar/atualizar.component';
 import { LoginComponent } from './components/login/login.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: LandingpageComponent
+  },
+  {
+    path: 'login',
     component: LoginComponent
   },
   {

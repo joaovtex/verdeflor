@@ -31,8 +31,7 @@
         <mat-form-field class="admissao-funcionario" appearance="fill">
             <mat-label>Data de Ínicio</mat-label>
 
-            <input [(ngModel)]="funcionario.dtAdmissao" [matDatepicker]="dp3" matInput
-                [value]="funcionario.dtAdmissao | date:'yyyy-MM-dd'" />
+            <input [(ngModel)]="funcionario.dtAdmissao" [matDatepicker]="dp3" matInput />
             <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
             <mat-datepicker #dp3></mat-datepicker>
         </mat-form-field>

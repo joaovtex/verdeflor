@@ -28,11 +28,12 @@ export class AtualizarComponent implements OnInit {
 
   pesquisarID(): void {
     this.service.pesquisarID(this.funcionario.id).subscribe((resposta) => {
-      console.log("Dados recebidos:", resposta); // Para verificar o retorno
+      console.log("Dados recebidos:", resposta);
       this.funcionario = resposta;
 
-      // Ajuste a data para evitar diferenças de fuso horário
-      this.funcionario.dtAdmissao = new Date(resposta.dtAdmissao + 'T00:00:00');
+      const dataRecebida = new Date(resposta.dtAdmissao);
+      dataRecebida.setHours(12); 
+      this.funcionario.dtAdmissao = dataRecebida;
     });
   }
 
@@ -41,7 +42,9 @@ export class AtualizarComponent implements OnInit {
   }
 
   formatarData(): void {
-    let data = new Date(this.funcionario.dtAdmissao).toISOString()
+    const data = new Date(this.funcionario.dtAdmissao);
+    data.setHours(12); 
+    this.funcionario.dtAdmissao = data.toISOString().split('T')[0]; 
   }
 
   atualizar(): void {
