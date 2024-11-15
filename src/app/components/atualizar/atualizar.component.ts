@@ -15,8 +15,10 @@ export class AtualizarComponent implements OnInit {
     nome: '',
     cpf: '',
     salario: 0,
-    dtAdmissao: new Date()
-  }
+    dtAdmissao: new Date(),
+    estaAtivo: true 
+  };
+
 
   constructor(private router: Router, private service: FuncionarioService, private location: Location, private route: ActivatedRoute) { }
 
@@ -32,7 +34,7 @@ export class AtualizarComponent implements OnInit {
       this.funcionario = resposta;
 
       const dataRecebida = new Date(resposta.dtAdmissao);
-      dataRecebida.setHours(12); 
+      dataRecebida.setHours(12);
       this.funcionario.dtAdmissao = dataRecebida;
     });
   }
@@ -43,8 +45,8 @@ export class AtualizarComponent implements OnInit {
 
   formatarData(): void {
     const data = new Date(this.funcionario.dtAdmissao);
-    data.setHours(12); 
-    this.funcionario.dtAdmissao = data.toISOString().split('T')[0]; 
+    data.setHours(12);
+    this.funcionario.dtAdmissao = data.toISOString().split('T')[0];
   }
 
   atualizar(): void {

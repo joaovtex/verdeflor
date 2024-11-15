@@ -4,4 +4,5 @@ export interface Funcionario {
     cpf: string,
     salario: number,
     dtAdmissao: any
+    estaAtivo: boolean
 }

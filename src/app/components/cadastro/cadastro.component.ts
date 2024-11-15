@@ -15,7 +15,8 @@ export class CadastroComponent implements OnInit {
     nome: '',
     cpf: '',
     salario: 0,
-    dtAdmissao: new Date()
+    dtAdmissao: new Date(),
+    estaAtivo: true
   }
 
   constructor(private router: Router, private service: FuncionarioService, private location: Location) { }
@@ -45,7 +46,7 @@ export class CadastroComponent implements OnInit {
     } else {
       this.funcionario.cpf = this.formatarCPF(String(this.funcionario.cpf));
       this.formatarData();
-      
+
       this.service.cadastrar(this.funcionario).subscribe(
         (resposta) => {
           this.service.message('Funcionário cadastrado com sucesso.');
@@ -53,7 +54,8 @@ export class CadastroComponent implements OnInit {
             nome: '',
             cpf: '',
             salario: 0,
-            dtAdmissao: new Date()
+            dtAdmissao: new Date(),
+            estaAtivo: true
           };
         },
         (err) => {
@@ -63,7 +65,6 @@ export class CadastroComponent implements OnInit {
 
     }
   }
-  
 
   validarCPF(cpf: string): boolean {
 
@@ -91,5 +92,4 @@ export class CadastroComponent implements OnInit {
 
     return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
   }
-
 }

@@ -23,6 +23,6 @@ export class UserService {
 
   logar(user: User): Observable<boolean> {
     return this.http.post<boolean>(this.baseUrl, user);
-}
+  }
 
 }

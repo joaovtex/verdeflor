@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LandingpageComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   login() {
     this.router.navigate(['login'])

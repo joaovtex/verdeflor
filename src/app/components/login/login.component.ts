@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         alert('Erro ao fazer login! Verifique a conexão com o servidor.');
       }
     );
-}
+  }
 
 
 }

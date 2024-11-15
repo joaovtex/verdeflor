@@ -9,19 +9,23 @@
         font-weight: bold;
         color: #33784A;
     }
-    
+
     .dados {
         width: 80%;
         display: flex;
         flex-direction: column;
         align-items: end;
 
-        .nome-funcionario, .cpf-funcionario, .salario-funcionario {
+        .nome-funcionario,
+        .cpf-funcionario,
+        .salario-funcionario {
             width: 100%;
         }
 
-        .admissao-funcionario {
-            width: 20%;
+        .selects {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
         }
     }
 

@@ -5,6 +5,15 @@
     <h1>Lista de Funcionarios</h1>
 
     <div class="ordenacao-novo">
+        <mat-form-field class="filtro-status">
+            <mat-label>Filtrar por status</mat-label>
+            <mat-select [(value)]="statusFiltro" (selectionChange)="filtrarPorStatus()">
+                <mat-option value="todos">Todos</mat-option>
+                <mat-option value="ativos">Ativos</mat-option>
+                <mat-option value="inativos">Inativos</mat-option>
+            </mat-select>
+        </mat-form-field>
+
         <mat-form-field class="filtro-ordenacao">
             <mat-label>Ordenar por</mat-label>
             <mat-select [(value)]="ordenacao" (selectionChange)="ordenarLista()">
@@ -18,7 +27,8 @@
 
         <mat-form-field class="search-field">
             <input matInput placeholder="Pesquisar por nome" [(ngModel)]="nomePesquisa" (keyup)="pesquisarPorNome()">
-            <button mat-button *ngIf="nomePesquisa" matSuffix mat-icon-button aria-label="Clear" (click)="limparPesquisa()">
+            <button mat-button *ngIf="nomePesquisa" matSuffix mat-icon-button aria-label="Clear"
+                (click)="limparPesquisa()">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
@@ -50,6 +60,10 @@
 
                 <mat-card-subtitle class="subtitulo">
                     Data de Admissão: {{item.dtAdmissao | date:'dd/MM/yyyy'}}
+                </mat-card-subtitle>
+
+                <mat-card-subtitle class="subtitulo">
+                    Status: {{item.estaAtivo ? "Ativo" : "Inativo"}}
                 </mat-card-subtitle>
             </mat-card-header>
 

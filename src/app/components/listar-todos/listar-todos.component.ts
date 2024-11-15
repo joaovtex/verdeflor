@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class ListarTodosComponent implements OnInit {
   list: Funcionario[] = [];
   ordenacao: string = 'nome';
-  nomePesquisa: string = ''; // Variável para armazenar o termo de pesquisa
+  nomePesquisa: string = '';
+  statusFiltro: string = 'todos';
 
   constructor(private service: FuncionarioService, private router: Router) { }
 
@@ -29,35 +30,35 @@ export class ListarTodosComponent implements OnInit {
 
   pesquisarPorNome(): void {
     if (this.nomePesquisa.trim() === '') {
-      this.findAll(); // Retorna lista completa se vazio
+      this.findAll();
     } else {
       this.service.pesquisarPorNome(this.nomePesquisa).subscribe((resposta) => {
         this.list = resposta;
       });
     }
-}
+  }
 
   limparPesquisa(): void {
     this.nomePesquisa = '';
-    this.findAll(); // Recarrega a lista completa quando a pesquisa é limpa
+    this.findAll();
   }
 
   delete(id: any): void {
-    let confirma = confirm("Confirma a exclusão do funcionário")
+    let confirma = confirm("Confirma a exclusão do funcionário?")
 
-    if(confirma ) {
-    this.service.delete(id).subscribe((resposta) => {
-      if (resposta === null) {
-        this.service.message(`Registro ${id} excluído com sucesso!`);
-        this.list = this.list.filter(funcionario => funcionario.id !== id);
-      } else {
-        this.service.message('Não foi possível excluir o registro.');
-      }
-    });
-  } else {
-    this.service.message("Exclusão cancelada.")
+    if (confirma) {
+      this.service.delete(id).subscribe((resposta) => {
+        if (resposta === null) {
+          this.service.message(`Funcionário excluído com sucesso!`);
+          this.list = this.list.filter(funcionario => funcionario.id !== id);
+        } else {
+          this.service.message('Não foi possível excluir o registro.');
+        }
+      });
+    } else {
+      this.service.message("Exclusão cancelada.")
+    }
   }
-}
 
   ordenarLista(): void {
     switch (this.ordenacao) {
@@ -78,6 +79,29 @@ export class ListarTodosComponent implements OnInit {
         break;
     }
   }
+
+  filtrarPorStatus(): void {
+    switch (this.statusFiltro) {
+      case 'ativos':
+        this.service.listarAtivos().subscribe((resposta) => {
+          this.list = resposta;
+          this.ordenarLista();
+        });
+        break;
+
+      case 'inativos':
+        this.service.listarInativos().subscribe((resposta) => {
+          this.list = resposta;
+          this.ordenarLista();
+        });
+        break;
+
+      default:
+        this.findAll();
+        break;
+    }
+  }
+
 
   cadastrar(): void {
     this.router.navigate(['cadastro']);

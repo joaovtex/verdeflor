@@ -22,7 +22,7 @@ export class FuncionarioService {
     })
   }
 
-  findAll(): Observable<Funcionario[]>{
+  findAll(): Observable<Funcionario[]> {
     return this.http.get<Funcionario[]>(`${this.baseUrl}`)
   }
 
@@ -43,6 +43,15 @@ export class FuncionarioService {
   pesquisarPorNome(nome: string): Observable<Funcionario[]> {
     const url = `${this.baseUrl}/nome/${nome}`;
     return this.http.get<Funcionario[]>(url);
-}
+  }
+
+  listarAtivos(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(`${this.baseUrl}/ativos`);
+  }
+
+  listarInativos(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(`${this.baseUrl}/inativos`);
+  }
+
 
 }
